@@ -10,9 +10,9 @@ import { LoginPage } from './login.page';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule, // Asegúrate de que esté importado
+    ReactiveFormsModule, // Asegúrate de que este módulo esté importado
     IonicModule
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage] // Asegúrate de que LoginPage esté declarado
 })
 export class LoginPageModule {}
