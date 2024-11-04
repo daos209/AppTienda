@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: 'login.page.html',
+  styleUrls: ['login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+  constructor(private navCtrl: NavController) {}
 
-  constructor() { }
-
-  ngOnInit() {
+  login() {
+    // Aquí se pueden agregar la lógica de autenticación
+    this.navCtrl.navigateForward('/home');
   }
-
 }

@@ -1,13 +1,19 @@
-<ion-header [translucent]="true">
+<!-- src/app/home/home.page.html -->
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido a la Aplicación</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Esta es la página de inicio.</p>
+      <ion-button routerLink="/login" expand="full">Ir a Login</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
