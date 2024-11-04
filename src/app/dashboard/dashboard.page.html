@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
     <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>Panel de Control</h1>
+<ion-menu side="end" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item routerLink="/home">Inicio</ion-item>
+      <ion-item routerLink="/profile">Perfil</ion-item>
+      <ion-item routerLink="/settings">Configuraciones</ion-item>
+      <ion-item routerLink="/form">Formulario</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content id="main-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <h1>Panel de Control</h1>
+    <!-- Aquí puedes agregar más contenido del Dashboard -->
+  </div>
 </ion-content>

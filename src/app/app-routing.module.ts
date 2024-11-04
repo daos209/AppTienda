@@ -1,12 +1,10 @@
-// src/app/app-routing.module.ts
-
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home', // Cambia 'login' a 'home'
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -18,8 +16,8 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
   {
-    path: 'login',
-  loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'profile',

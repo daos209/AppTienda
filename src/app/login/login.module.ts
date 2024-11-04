@@ -1,18 +1,18 @@
-// src/app/login/login.module.ts
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule, // Asegúrate de que este módulo esté importado
-    IonicModule
+    ReactiveFormsModule,
+    IonicModule,
+    LoginPageRoutingModule
   ],
-  declarations: [LoginPage] // Asegúrate de que LoginPage esté declarado
+  declarations: [LoginPage]
 })
 export class LoginPageModule {}

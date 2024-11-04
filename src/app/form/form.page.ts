@@ -1,8 +1,6 @@
-// src/app/form/form.page.ts
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form',
@@ -15,35 +13,44 @@ export class FormPage {
   constructor(
     private formBuilder: FormBuilder,
     private loadingController: LoadingController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private toastController: ToastController
   ) {
     this.myForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      // Otros campos del formulario...
+      birthdate: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      address: ['', Validators.required]
     });
   }
 
   async submitForm() {
     if (this.myForm.valid) {
-      // Muestra el loader
       const loading = await this.loadingController.create({
         message: 'Enviando...',
-        spinner: 'crescent', // Puede ser 'bubbles', 'circles', 'crescent', etc.
-        duration: 2000 // Duración de la animación (2 segundos)
+        spinner: 'crescent',
+        duration: 2000
       });
       await loading.present();
 
-      // Simula un proceso de envío (puedes hacer tu llamada API aquí)
       setTimeout(async () => {
-        // Aquí puedes manejar la respuesta después de enviar el formulario
         await loading.dismiss();
-        // Redirigir o mostrar un mensaje de éxito
         this.navCtrl.navigateBack('/home');
-      }, 2000); // Simula un retraso de 2 segundos
+        this.presentToast('Formulario enviado con éxito');
+      }, 2000);
     } else {
-      // Manejo de errores si el formulario no es válido
-      console.error('Formulario no válido');
+      this.presentToast('Por favor, complete todos los campos correctamente');
     }
   }
-}
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      color: 'danger',
+      position: 'bottom',
+    });
+    toast.present();
+ }
+} 

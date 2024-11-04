@@ -1,4 +1,3 @@
-<!-- src/app/login/login.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Iniciar Sesión</ion-title>
@@ -9,14 +8,26 @@
   <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" formControlName="email"></ion-input>
+      <ion-input type="email" formControlName="email" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+      <ion-label color="danger">Email inválido</ion-label>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-input type="password" formControlName="password" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+      <ion-label color="danger">Contraseña requerida</ion-label>
     </ion-item>
 
-    <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</ion-button>
+
+    <ion-item lines="none">
+      <ion-label>
+        <a href="/recover-password">¿Olvidaste tu contraseña?</a>
+      </ion-label>
+    </ion-item>
   </form>
 </ion-content>
