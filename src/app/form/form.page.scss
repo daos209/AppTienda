@@ -1,0 +1,33 @@
+ion-content {
+    padding: 16px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+  /* src/app/form/form.page.scss */
+
+ion-content {
+  --background: #f0f0f5; /* Fondo más claro para el contenido */
+}
+
+form {
+  padding: 16px; /* Espaciado alrededor del formulario */
+}
+
+ion-item {
+  margin-bottom: 16px; /* Espaciado entre los elementos del formulario */
+}
+
+ion-button {
+  background-color: #3880ff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+ion-button:disabled {
+  background-color: #c4c4c4; /* Color del botón deshabilitado */
+}
