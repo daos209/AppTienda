@@ -11,19 +11,19 @@ export class FolderPage implements OnInit {
   public products = [
     {
       name: 'Producto 1',
-      price: 29.99,
+      price: 2999,
       description: 'Descripción del producto 1',
       image: 'assets/images/product1.jpg'
     },
     {
       name: 'Producto 2',
-      price: 49.99,
+      price: 4999,
       description: 'Descripción del producto 2',
       image: 'assets/images/product2.jpg'
     },
     {
       name: 'Producto 3',
-      price: 19.99,
+      price: 1999,
       description: 'Descripción del producto 3',
       image: 'assets/images/product3.jpg'
     }
