@@ -26,3 +26,30 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
+ion-card {
+  margin: 10px;
+  img {
+    max-height: 200px;
+    object-fit: cover;
+  }
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ion-card-subtitle {
+  color: var(--ion-color-primary);
+  font-size: 1em;
+}
+
+ion-card-content p {
+  font-size: 0.9em;
+  color: var(--ion-color-medium);
+}
+
+ion-button {
+  --background: var(--ion-color-primary);
+  --color: white;
+}
