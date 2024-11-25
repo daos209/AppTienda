@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.page.html',
-  styleUrls: ['./form.page.scss'],
+    selector: 'app-form',
+    templateUrl: './form.page.html',
+    styleUrls: ['./form.page.scss'],
+    standalone: false
 })
 export class FormPage {
   myForm: FormGroup;

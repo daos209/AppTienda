@@ -4,9 +4,10 @@ import { AlertController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss'],
+    selector: 'app-registro',
+    templateUrl: './registro.page.html',
+    styleUrls: ['./registro.page.scss'],
+    standalone: false
 })
 export class RegistroPage implements OnInit {
 
