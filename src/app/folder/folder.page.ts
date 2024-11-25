@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-folder',
-  templateUrl: 'src/app/folder.page.html',
-  styleUrls: ['src/app/folder.page.scss'],
+  templateUrl: './folder.page.html',
+  styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
   public folder: string = '';

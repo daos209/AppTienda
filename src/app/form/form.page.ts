@@ -4,8 +4,8 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
 
 @Component({
   selector: 'app-form',
-  templateUrl: 'src/app/form.page.html',
-  styleUrls: ['src/app/form.page.scss'],
+  templateUrl: './form.page.html',
+  styleUrls: ['./form.page.scss'],
 })
 export class FormPage {
   myForm: FormGroup;

@@ -4,8 +4,8 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'src/app/login.page.html',
-  styleUrls: ['src/app/login.page.scss'],
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
   loginForm: FormGroup;
