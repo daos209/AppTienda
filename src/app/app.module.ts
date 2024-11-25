@@ -19,7 +19,9 @@ import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
     AppRoutingModule            // Importa el módulo de rutas
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite], // Estrategia de reutilización de rutas para Ionic
+      { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+      SQLite
+    ], // Estrategia de reutilización de rutas para Ionic
   
   bootstrap: [AppComponent] // Componente que se arranca al inicio
 })
