@@ -43,7 +43,7 @@ export class RegistroPage implements OnInit {
   }
 
   async register() {
-    const success = await this.dataService.registerUser(
+    const success: boolean = await this.dataService.registerUser(
       this.rut,
       this.nombre,
       this.apellidop,
