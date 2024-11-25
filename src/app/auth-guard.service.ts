@@ -7,7 +7,13 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private router: Router, private storage: Storage) {}
+  constructor(private router: Router, private storage: Storage) {
+    this.init();
+  }
+
+  async init() {
+    await this.storage.create();
+  }
 
   async canActivate(): Promise<boolean> {
     const isLoggedIn = await this.storage.get('loggedIn');

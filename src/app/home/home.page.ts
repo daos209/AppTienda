@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +10,10 @@ import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 })
 export class HomePage {
   currentImage: any;
+  currentLocation: any;
+  weather: any;
 
-  constructor(private camera: Camera) {}
+  constructor(private camera: Camera, private geolocation: Geolocation, private weatherService: WeatherService) {}
 
   takePicture() {
     const options: CameraOptions = {
@@ -23,6 +27,25 @@ export class HomePage {
       this.currentImage = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       console.log("Camera issue: " + err);
+    });
+  }
+
+  getCurrentLocation() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.currentLocation = {
+        latitude: resp.coords.latitude,
+        longitude: resp.coords.longitude
+      };
+      this.getWeather(this.currentLocation.latitude, this.currentLocation.longitude);
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  }
+
+  getWeather(lat: number, lon: number) {
+    this.weatherService.getWeather(lat, lon).subscribe(data => {
+      this.weather = data;
+      console.log(this.weather);
     });
   }
 }

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
-import { FolderPage } from './folder.page';
+import { FolderPage } from './products.page';
 
 @NgModule({
   imports: [

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { Camera } from '@ionic-native/camera/ngx';
+import { ProductsPage } from './products/products.page';
+import { AuthGuardService } from './services/auth-guard.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -13,34 +15,39 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule),
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
     path: 'settings',
-    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule),
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule),
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
     path: 'form',
-    loadChildren: () => import('./form/form.module').then(m => m.FormPageModule)
+    loadChildren: () => import('./form/form.module').then(m => m.FormPageModule),
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
+    loadChildren: () => import('./products/products.module').then(m => m.FolderPageModule),
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: 'products',
+    component: ProductsPage,
+    canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   }
-
-  { path: 'products', component: ProductsPage, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

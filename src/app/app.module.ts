@@ -9,7 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 import { HttpClientModule } from '@angular/common/http';
-import { Camera } from '@awesome-cordova-plugins/camera/ngx'; // Importa Camera
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { IonicStorageModule } from '@ionic/storage-angular'; // Importa IonicStorageModule
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,12 +20,14 @@ import { Camera } from '@awesome-cordova-plugins/camera/ngx'; // Importa Camera
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot() // Configura IonicStorageModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
-    Camera // Agrega Camera a los proveedores
+    Camera,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

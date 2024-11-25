@@ -57,18 +57,12 @@
 
       <ion-item>
         <ion-label>Fecha Nacimiento</ion-label>
-        <ion-item>  
-
-           <!-- Componente de Angular Material -->
-           <mat-form-field>
-            <mat-label>dd/mm/yyyy</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">  
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker> 
-          </mat-form-field>
-          
-           
-        </ion-item>
+        <mat-form-field>
+          <mat-label>dd/mm/yyyy</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">  
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker> 
+        </mat-form-field>
       </ion-item>
 
       </ion-card-content>
