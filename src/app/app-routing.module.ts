@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ProductsPage } from './products/products.page';
-import { AuthGuardService } from './services/auth-guard.service';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   {
@@ -34,13 +34,13 @@ const routes: Routes = [
     canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
-    path: 'form',
-    loadChildren: () => import('./form/form.module').then(m => m.FormPageModule),
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule),
     canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./products/products.module').then(m => m.FolderPageModule),
+    path: 'registro/:id',
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule),
     canActivate: [AuthGuardService] // Protege la ruta con AuthGuardService
   },
   {
