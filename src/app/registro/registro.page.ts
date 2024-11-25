@@ -44,12 +44,8 @@ export class RegistroPage implements OnInit {
 
   async register() {
     const success = await this.dataService.registerUser(
-      this.nombre,
-      this.apellido,
       this.usuario,
-      this.password,
-      this.selectedOption,
-      Number(this.selectedDate)
+      this.password
     );
     this.registroStatus = success ? 'Registro exitoso' : 'Error al registrar';
     this.presentAlert(this.registroStatus);
