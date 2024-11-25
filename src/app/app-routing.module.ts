@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { Camera } from '@ionic-native/camera/ngx';
 const routes: Routes = [
   {
     path: '',
@@ -34,11 +34,13 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
-  },  {
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   }
 
+  { path: 'products', component: ProductsPage, canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

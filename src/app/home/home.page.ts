@@ -1,22 +1,28 @@
-// src/app/home/home.page.ts
-
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.page.html',
-    styleUrls: ['./home.page.scss'],
-    standalone: false
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  constructor(private navCtrl: NavController) {}
+  currentImage: any;
 
-  goToLogin() {
-    this.navCtrl.navigateForward('/login'); // Navega a la página de inicio de sesión
-  }
+  constructor(private camera: Camera) {}
 
-  goToForm() {
-    this.navCtrl.navigateForward('/form'); // Navega a la página del formulario
+  takePicture() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.currentImage = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      console.log("Camera issue: " + err);
+    });
   }
 }

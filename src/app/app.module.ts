@@ -8,22 +8,23 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+import { HttpClientModule } from '@angular/common/http';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx'; // Importa Camera
 
 @NgModule({
-  declarations: [AppComponent],  // Declara el componente principal aquí
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,             // Módulo necesario para aplicaciones en navegadores
-    IonicModule.forRoot(),      // Inicializa Ionic
-    AppRoutingModule,           // Importa el módulo de rutas
-    ReactiveFormsModule,        // Importa ReactiveFormsModule para formularios reactivos
-    HttpClientModule            // Importa HttpClientModule para realizar peticiones HTTP
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
-  ], // Estrategia de reutilización de rutas para Ionic
-  
-  bootstrap: [AppComponent] // Componente que se arranca al inicio
+    Camera // Agrega Camera a los proveedores
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

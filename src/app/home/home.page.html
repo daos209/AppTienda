@@ -16,3 +16,15 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="takePicture()">Take Picture</ion-button>
+  <img *ngIf="currentImage" [src]="currentImage" />
+</ion-content>
