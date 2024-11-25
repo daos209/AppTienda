@@ -9,6 +9,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
 
 @NgModule({
   declarations: [AppComponent],  // Declara el componente principal aquí
@@ -18,8 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule            // Importa el módulo de rutas
   ],
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy } // Estrategia de reutilización de rutas para Ionic
-  ],
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite], // Estrategia de reutilización de rutas para Ionic
+  
   bootstrap: [AppComponent] // Componente que se arranca al inicio
 })
 export class AppModule {}
