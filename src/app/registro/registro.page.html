@@ -6,7 +6,7 @@
     </ion-buttons>
 
     <!-- Título centrado opcional -->
-    <ion-title class="center-title"> Registro</ion-title>
+    <ion-title class="center-title">Registro</ion-title>
 
     <!-- Botón de menú a la derecha -->
     <ion-buttons slot="end">
@@ -15,16 +15,9 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content [fullscreen]="true"> 
-
-   
-    <ion-card>
-
-  
-      <!-- Creamos los campos para el home-->
-      <ion-card-content>
-
+  <ion-card>
+    <ion-card-content>
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
         <ion-input type="text" [(ngModel)]="nombre"></ion-input>
@@ -36,7 +29,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">usuario</ion-label>
+        <ion-label position="floating">Usuario</ion-label>
         <ion-input type="text" [(ngModel)]="usuario"></ion-input>
       </ion-item>
 
@@ -44,7 +37,6 @@
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
-
 
       <ion-item>
         <ion-label>Tipo Usuario</ion-label>
@@ -65,12 +57,7 @@
         </mat-form-field>
       </ion-item>
 
-      </ion-card-content>
-
-        <!-- Creamos el boton -->
-
-        <ion-button (click)="guardar()"  expand="block" fill="clear">Guardar Datos</ion-button> 
-
-    </ion-card>
-   
+      <ion-button (click)="guardar()" expand="block" fill="clear">Guardar Datos</ion-button> 
+    </ion-card-content>
+  </ion-card>
 </ion-content>

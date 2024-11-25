@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular'; // Importa IonicStorageModule
@@ -20,14 +20,14 @@ import { IonicStorageModule } from '@ionic/storage-angular'; // Importa IonicSto
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
     IonicStorageModule.forRoot() // Configura IonicStorageModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLite,
     Camera,
-    Geolocation
+    Geolocation,
+    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent]
 })

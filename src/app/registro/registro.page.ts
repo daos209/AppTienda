@@ -4,19 +4,18 @@ import { AlertController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 
 @Component({
-    selector: 'app-registro',
-    templateUrl: './registro.page.html',
-    styleUrls: ['./registro.page.scss'],
-    standalone: false
+  selector: 'app-registro',
+  templateUrl: './registro.page.html',
+  styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
 
-  rut: string = '';
   nombre: string = '';
-  apellidop: string = '';
-  apellidom: string = '';
-  profesion: string = '';
-  horas_disponibles: number = 0;
+  apellido: string = '';
+  selectedOption: string = ''; // nivel de estudios
+  selectedDate: string = '';
+  usuario: string = '';
+  password: string = '';
   registroStatus: string = '';
 
   constructor(private alertController: AlertController, private menu: MenuController, private dataService: DataService) { }
@@ -36,21 +35,21 @@ export class RegistroPage implements OnInit {
   }
 
   guardar() {
-    if (this.nombre.trim() === '' || this.apellidop.trim() === '' || this.apellidom.trim() === '' || this.profesion.trim() === '' || this.horas_disponibles <= 0) {
-      this.presentAlert('Error: Todos los campos son obligatorios y las horas disponibles deben ser mayores a 0');
+    if (this.nombre.trim() === '' || this.apellido.trim() === '') {
+      this.presentAlert('Error: nombre y apellido vacios');
     } else {
       this.register();
     }
   }
 
   async register() {
-    const success: boolean = await this.dataService.registerUser(
-      this.rut,
+    const success = await this.dataService.registerUser(
       this.nombre,
-      this.apellidop,
-      this.apellidom,
-      this.profesion,
-      this.horas_disponibles
+      this.apellido,
+      this.usuario,
+      this.password,
+      this.selectedOption,
+      Number(this.selectedDate)
     );
     this.registroStatus = success ? 'Registro exitoso' : 'Error al registrar';
     this.presentAlert(this.registroStatus);

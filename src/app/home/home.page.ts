@@ -48,4 +48,11 @@ export class HomePage {
       console.log(this.weather);
     });
   }
+
+  openWhatsApp() {
+    const phoneNumber = '1234567890'; // Reemplaza con el número de teléfono deseado
+    const message = 'Hola, necesito ayuda con...'; // Mensaje predefinido
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
 }
