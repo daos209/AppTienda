@@ -5,7 +5,6 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -13,6 +12,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
@@ -29,5 +29,24 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [
+    "src/main.ts",
+    "src/polyfills.ts",
+    "src/app/registro/registro.module.ts",
+    "src/app/camara/camara.module.ts",
+    "src/app/productos/productos.module.ts",
+    "src/app/login/login.module.ts",
+    "src/app/home/home.module.ts",
+    "src/app/galeria/galeria.module.ts",
+    "src/app/reset-password/reset-password.module.ts",
+    "src/app/clientes/clientes.module.ts",
+    "src/app/map/map.module.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
 }
